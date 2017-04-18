@@ -1,0 +1,1542 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/vuejs/vuex#readme"
+
+    >vuex (v2.3.1)</a>
+</h1>
+<h4>state management for Vue.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex">module vuex</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store">
+            function <span class="apidocSignatureSpan">vuex.</span>Store
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype._withCommit">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype._withCommit
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.commit">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.commit
+            <span class="apidocSignatureSpan">(_type, _payload, _options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.dispatch">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.dispatch
+            <span class="apidocSignatureSpan">(_type, _payload)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.hotUpdate">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.hotUpdate
+            <span class="apidocSignatureSpan">(newOptions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.registerModule">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.registerModule
+            <span class="apidocSignatureSpan">(path, rawModule)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.replaceState">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.replaceState
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.subscribe">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.subscribe
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.unregisterModule">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.unregisterModule
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.watch">
+            function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.watch
+            <span class="apidocSignatureSpan">(getter, cb, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.install">
+            function <span class="apidocSignatureSpan">vuex.</span>install
+            <span class="apidocSignatureSpan">(_Vue)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapActions">
+            function <span class="apidocSignatureSpan">vuex.</span>mapActions
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapGetters">
+            function <span class="apidocSignatureSpan">vuex.</span>mapGetters
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapMutations">
+            function <span class="apidocSignatureSpan">vuex.</span>mapMutations
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapState">
+            function <span class="apidocSignatureSpan">vuex.</span>mapState
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vuex.</span>Store.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">vuex.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store">module vuex.Store</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.Store">
+            function <span class="apidocSignatureSpan">vuex.</span>Store
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype">module vuex.Store.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype._withCommit">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>_withCommit
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.commit">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>commit
+            <span class="apidocSignatureSpan">(_type, _payload, _options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.dispatch">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>dispatch
+            <span class="apidocSignatureSpan">(_type, _payload)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.hotUpdate">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>hotUpdate
+            <span class="apidocSignatureSpan">(newOptions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.registerModule">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>registerModule
+            <span class="apidocSignatureSpan">(path, rawModule)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.replaceState">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>replaceState
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.subscribe">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>subscribe
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.unregisterModule">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>unregisterModule
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.watch">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>watch
+            <span class="apidocSignatureSpan">(getter, cb, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype._withCommit">module vuex.Store.prototype._withCommit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype._withCommit._withCommit">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>_withCommit
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.commit">module vuex.Store.prototype.commit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.commit.commit">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>commit
+            <span class="apidocSignatureSpan">(_type, _payload, _options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.dispatch">module vuex.Store.prototype.dispatch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.dispatch.dispatch">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>dispatch
+            <span class="apidocSignatureSpan">(_type, _payload)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.hotUpdate">module vuex.Store.prototype.hotUpdate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.hotUpdate.hotUpdate">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>hotUpdate
+            <span class="apidocSignatureSpan">(newOptions)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.registerModule">module vuex.Store.prototype.registerModule</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.registerModule.registerModule">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>registerModule
+            <span class="apidocSignatureSpan">(path, rawModule)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.replaceState">module vuex.Store.prototype.replaceState</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.replaceState.replaceState">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>replaceState
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.subscribe">module vuex.Store.prototype.subscribe</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.subscribe.subscribe">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>subscribe
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.unregisterModule">module vuex.Store.prototype.unregisterModule</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.unregisterModule.unregisterModule">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>unregisterModule
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.Store.prototype.watch">module vuex.Store.prototype.watch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.Store.prototype.watch.watch">
+            function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>watch
+            <span class="apidocSignatureSpan">(getter, cb, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.install">module vuex.install</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.install.install">
+            function <span class="apidocSignatureSpan">vuex.</span>install
+            <span class="apidocSignatureSpan">(_Vue)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.mapActions">module vuex.mapActions</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapActions.mapActions">
+            function <span class="apidocSignatureSpan">vuex.</span>mapActions
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.mapGetters">module vuex.mapGetters</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapGetters.mapGetters">
+            function <span class="apidocSignatureSpan">vuex.</span>mapGetters
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.mapMutations">module vuex.mapMutations</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapMutations.mapMutations">
+            function <span class="apidocSignatureSpan">vuex.</span>mapMutations
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vuex.mapState">module vuex.mapState</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vuex.mapState.mapState">
+            function <span class="apidocSignatureSpan">vuex.</span>mapState
+            <span class="apidocSignatureSpan">(namespace, map)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex" id="apidoc.module.vuex">module vuex</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store" id="apidoc.element.vuex.Store">
+        function <span class="apidocSignatureSpan">vuex.</span>Store
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Store(options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  assert(Vue, &#x22;must call Vue.use(Vuex) before creating a store instance.&#x22;);
+  assert(typeof Promise !== &#x27;undefined&#x27;, &#x22;vuex requires a Promise polyfill in this browser.&#x22;);
+
+  var state = options.state; if ( state === void 0 ) state = {};
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.concat(devtoolPlugin).forEach(function (plugin) { return plugin(this$1); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype._withCommit" id="apidoc.element.vuex.Store.prototype._withCommit">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype._withCommit
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _withCommit(fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.commit" id="apidoc.element.vuex.Store.prototype.commit">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.commit
+        <span class="apidocSignatureSpan">(_type, _payload, _options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function commit(_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    console.error((&#x22;[vuex] unknown mutation type: &#x22; + type));
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (options &#x26;&#x26; options.silent) {
+    console.warn(
+      &#x22;[vuex] mutation type: &#x22; + type + &#x22;. Silent option has been removed. &#x22; +
+      &#x27;Use the filter functionality in the vue-devtools&#x27;
+    );
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.dispatch" id="apidoc.element.vuex.Store.prototype.dispatch">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.dispatch
+        <span class="apidocSignatureSpan">(_type, _payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dispatch(_type, _payload) {
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var entry = this._actions[type];
+  if (!entry) {
+    console.error((&#x22;[vuex] unknown action type: &#x22; + type));
+    return
+  }
+  return entry.length &#x3e; 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.hotUpdate" id="apidoc.element.vuex.Store.prototype.hotUpdate">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.hotUpdate
+        <span class="apidocSignatureSpan">(newOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hotUpdate(newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.registerModule" id="apidoc.element.vuex.Store.prototype.registerModule">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.registerModule
+        <span class="apidocSignatureSpan">(path, rawModule)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerModule(path, rawModule) {
+  if (typeof path === &#x27;string&#x27;) { path = [path]; }
+  assert(Array.isArray(path), &#x22;module path must be a string or an Array.&#x22;);
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path));
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.replaceState" id="apidoc.element.vuex.Store.prototype.replaceState">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.replaceState
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function replaceState(state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.subscribe" id="apidoc.element.vuex.Store.prototype.subscribe">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.subscribe
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function subscribe(fn) {
+  var subs = this._subscribers;
+  if (subs.indexOf(fn) &#x3c; 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i &#x3e; -1) {
+      subs.splice(i, 1);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.unregisterModule" id="apidoc.element.vuex.Store.prototype.unregisterModule">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.unregisterModule
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unregisterModule(path) {
+    var this$1 = this;
+
+  if (typeof path === &#x27;string&#x27;) { path = [path]; }
+  assert(Array.isArray(path), &#x22;module path must be a string or an Array.&#x22;);
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.watch" id="apidoc.element.vuex.Store.prototype.watch">
+        function <span class="apidocSignatureSpan">vuex.</span>Store.prototype.watch
+        <span class="apidocSignatureSpan">(getter, cb, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function watch(getter, cb, options) {
+    var this$1 = this;
+
+  assert(typeof getter === &#x27;function&#x27;, &#x22;store.watch only accepts a function.&#x22;);
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.install" id="apidoc.element.vuex.install">
+        function <span class="apidocSignatureSpan">vuex.</span>install
+        <span class="apidocSignatureSpan">(_Vue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function install(_Vue) {
+  if (Vue) {
+    console.error(
+      &#x27;[vuex] already installed. Vue.use(Vuex) should be called only once.&#x27;
+    );
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapActions" id="apidoc.element.vuex.mapActions">
+        function <span class="apidocSignatureSpan">vuex.</span>mapActions
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapActions = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapGetters" id="apidoc.element.vuex.mapGetters">
+        function <span class="apidocSignatureSpan">vuex.</span>mapGetters
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapGetters = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapMutations" id="apidoc.element.vuex.mapMutations">
+        function <span class="apidocSignatureSpan">vuex.</span>mapMutations
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapMutations = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapState" id="apidoc.element.vuex.mapState">
+        function <span class="apidocSignatureSpan">vuex.</span>mapState
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapState = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store" id="apidoc.module.vuex.Store">module vuex.Store</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.Store" id="apidoc.element.vuex.Store.Store">
+        function <span class="apidocSignatureSpan">vuex.</span>Store
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Store(options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  assert(Vue, &#x22;must call Vue.use(Vuex) before creating a store instance.&#x22;);
+  assert(typeof Promise !== &#x27;undefined&#x27;, &#x22;vuex requires a Promise polyfill in this browser.&#x22;);
+
+  var state = options.state; if ( state === void 0 ) state = {};
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.concat(devtoolPlugin).forEach(function (plugin) { return plugin(this$1); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype" id="apidoc.module.vuex.Store.prototype">module vuex.Store.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype._withCommit" id="apidoc.element.vuex.Store.prototype._withCommit">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>_withCommit
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _withCommit(fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.commit" id="apidoc.element.vuex.Store.prototype.commit">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>commit
+        <span class="apidocSignatureSpan">(_type, _payload, _options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function commit(_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    console.error((&#x22;[vuex] unknown mutation type: &#x22; + type));
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (options &#x26;&#x26; options.silent) {
+    console.warn(
+      &#x22;[vuex] mutation type: &#x22; + type + &#x22;. Silent option has been removed. &#x22; +
+      &#x27;Use the filter functionality in the vue-devtools&#x27;
+    );
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.dispatch" id="apidoc.element.vuex.Store.prototype.dispatch">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>dispatch
+        <span class="apidocSignatureSpan">(_type, _payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dispatch(_type, _payload) {
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var entry = this._actions[type];
+  if (!entry) {
+    console.error((&#x22;[vuex] unknown action type: &#x22; + type));
+    return
+  }
+  return entry.length &#x3e; 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.hotUpdate" id="apidoc.element.vuex.Store.prototype.hotUpdate">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>hotUpdate
+        <span class="apidocSignatureSpan">(newOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hotUpdate(newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.registerModule" id="apidoc.element.vuex.Store.prototype.registerModule">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>registerModule
+        <span class="apidocSignatureSpan">(path, rawModule)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerModule(path, rawModule) {
+  if (typeof path === &#x27;string&#x27;) { path = [path]; }
+  assert(Array.isArray(path), &#x22;module path must be a string or an Array.&#x22;);
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path));
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.replaceState" id="apidoc.element.vuex.Store.prototype.replaceState">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>replaceState
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function replaceState(state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.subscribe" id="apidoc.element.vuex.Store.prototype.subscribe">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>subscribe
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function subscribe(fn) {
+  var subs = this._subscribers;
+  if (subs.indexOf(fn) &#x3c; 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i &#x3e; -1) {
+      subs.splice(i, 1);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.unregisterModule" id="apidoc.element.vuex.Store.prototype.unregisterModule">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>unregisterModule
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unregisterModule(path) {
+    var this$1 = this;
+
+  if (typeof path === &#x27;string&#x27;) { path = [path]; }
+  assert(Array.isArray(path), &#x22;module path must be a string or an Array.&#x22;);
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.watch" id="apidoc.element.vuex.Store.prototype.watch">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>watch
+        <span class="apidocSignatureSpan">(getter, cb, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function watch(getter, cb, options) {
+    var this$1 = this;
+
+  assert(typeof getter === &#x27;function&#x27;, &#x22;store.watch only accepts a function.&#x22;);
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype._withCommit" id="apidoc.module.vuex.Store.prototype._withCommit">module vuex.Store.prototype._withCommit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype._withCommit._withCommit" id="apidoc.element.vuex.Store.prototype._withCommit._withCommit">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>_withCommit
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _withCommit(fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.commit" id="apidoc.module.vuex.Store.prototype.commit">module vuex.Store.prototype.commit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.commit.commit" id="apidoc.element.vuex.Store.prototype.commit.commit">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>commit
+        <span class="apidocSignatureSpan">(_type, _payload, _options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function commit(_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    console.error((&#x22;[vuex] unknown mutation type: &#x22; + type));
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (options &#x26;&#x26; options.silent) {
+    console.warn(
+      &#x22;[vuex] mutation type: &#x22; + type + &#x22;. Silent option has been removed. &#x22; +
+      &#x27;Use the filter functionality in the vue-devtools&#x27;
+    );
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.dispatch" id="apidoc.module.vuex.Store.prototype.dispatch">module vuex.Store.prototype.dispatch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.dispatch.dispatch" id="apidoc.element.vuex.Store.prototype.dispatch.dispatch">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>dispatch
+        <span class="apidocSignatureSpan">(_type, _payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dispatch(_type, _payload) {
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var entry = this._actions[type];
+  if (!entry) {
+    console.error((&#x22;[vuex] unknown action type: &#x22; + type));
+    return
+  }
+  return entry.length &#x3e; 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.hotUpdate" id="apidoc.module.vuex.Store.prototype.hotUpdate">module vuex.Store.prototype.hotUpdate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.hotUpdate.hotUpdate" id="apidoc.element.vuex.Store.prototype.hotUpdate.hotUpdate">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>hotUpdate
+        <span class="apidocSignatureSpan">(newOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hotUpdate(newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.registerModule" id="apidoc.module.vuex.Store.prototype.registerModule">module vuex.Store.prototype.registerModule</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.registerModule.registerModule" id="apidoc.element.vuex.Store.prototype.registerModule.registerModule">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>registerModule
+        <span class="apidocSignatureSpan">(path, rawModule)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerModule(path, rawModule) {
+  if (typeof path === &#x27;string&#x27;) { path = [path]; }
+  assert(Array.isArray(path), &#x22;module path must be a string or an Array.&#x22;);
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path));
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.replaceState" id="apidoc.module.vuex.Store.prototype.replaceState">module vuex.Store.prototype.replaceState</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.replaceState.replaceState" id="apidoc.element.vuex.Store.prototype.replaceState.replaceState">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>replaceState
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function replaceState(state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.subscribe" id="apidoc.module.vuex.Store.prototype.subscribe">module vuex.Store.prototype.subscribe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.subscribe.subscribe" id="apidoc.element.vuex.Store.prototype.subscribe.subscribe">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>subscribe
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function subscribe(fn) {
+  var subs = this._subscribers;
+  if (subs.indexOf(fn) &#x3c; 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i &#x3e; -1) {
+      subs.splice(i, 1);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.unregisterModule" id="apidoc.module.vuex.Store.prototype.unregisterModule">module vuex.Store.prototype.unregisterModule</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.unregisterModule.unregisterModule" id="apidoc.element.vuex.Store.prototype.unregisterModule.unregisterModule">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>unregisterModule
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unregisterModule(path) {
+    var this$1 = this;
+
+  if (typeof path === &#x27;string&#x27;) { path = [path]; }
+  assert(Array.isArray(path), &#x22;module path must be a string or an Array.&#x22;);
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.Store.prototype.watch" id="apidoc.module.vuex.Store.prototype.watch">module vuex.Store.prototype.watch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.Store.prototype.watch.watch" id="apidoc.element.vuex.Store.prototype.watch.watch">
+        function <span class="apidocSignatureSpan">vuex.Store.prototype.</span>watch
+        <span class="apidocSignatureSpan">(getter, cb, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function watch(getter, cb, options) {
+    var this$1 = this;
+
+  assert(typeof getter === &#x27;function&#x27;, &#x22;store.watch only accepts a function.&#x22;);
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.install" id="apidoc.module.vuex.install">module vuex.install</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.install.install" id="apidoc.element.vuex.install.install">
+        function <span class="apidocSignatureSpan">vuex.</span>install
+        <span class="apidocSignatureSpan">(_Vue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function install(_Vue) {
+  if (Vue) {
+    console.error(
+      &#x27;[vuex] already installed. Vue.use(Vuex) should be called only once.&#x27;
+    );
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.mapActions" id="apidoc.module.vuex.mapActions">module vuex.mapActions</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapActions.mapActions" id="apidoc.element.vuex.mapActions.mapActions">
+        function <span class="apidocSignatureSpan">vuex.</span>mapActions
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapActions = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.mapGetters" id="apidoc.module.vuex.mapGetters">module vuex.mapGetters</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapGetters.mapGetters" id="apidoc.element.vuex.mapGetters.mapGetters">
+        function <span class="apidocSignatureSpan">vuex.</span>mapGetters
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapGetters = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.mapMutations" id="apidoc.module.vuex.mapMutations">module vuex.mapMutations</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapMutations.mapMutations" id="apidoc.element.vuex.mapMutations.mapMutations">
+        function <span class="apidocSignatureSpan">vuex.</span>mapMutations
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapMutations = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vuex.mapState" id="apidoc.module.vuex.mapState">module vuex.mapState</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vuex.mapState.mapState" id="apidoc.element.vuex.mapState.mapState">
+        function <span class="apidocSignatureSpan">vuex.</span>mapState
+        <span class="apidocSignatureSpan">(namespace, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapState = function (namespace, map) {
+  if (typeof namespace !== &#x27;string&#x27;) {
+    map = namespace;
+    namespace = &#x27;&#x27;;
+  } else if (namespace.charAt(namespace.length - 1) !== &#x27;/&#x27;) {
+    namespace += &#x27;/&#x27;;
+  }
+  return fn(namespace, map)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

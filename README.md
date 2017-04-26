@@ -1,6 +1,6 @@
 # npmdoc-vuex
 
-#### api documentation for  [vuex (v2.3.1)](https://github.com/vuejs/vuex#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-vuex.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-vuex) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-vuex.svg)](https://travis-ci.org/npmdoc/node-npmdoc-vuex)
+#### basic api documentation for  [vuex (v2.3.1)](https://github.com/vuejs/vuex#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-vuex.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-vuex) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-vuex.svg)](https://travis-ci.org/npmdoc/node-npmdoc-vuex)
 
 #### state management for Vue.js
 
@@ -112,7 +112,8 @@
     },
     "typings": "types/index.d.ts",
     "unpkg": "dist/vuex.js",
-    "version": "2.3.1"
+    "version": "2.3.1",
+    "bin": {}
 }
 ```
 

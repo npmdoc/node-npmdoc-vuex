@@ -479,7 +479,23 @@
   fn();
   this._committing = committing;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var mutation = { type: type, payload: payload };
+var entry = this._mutations[type];
+if (!entry) {
+  console.error(("[vuex] unknown mutation type: " + type));
+  return
+}
+this.<span class="apidocCodeKeywordSpan">_withCommit</span>(function () {
+  entry.forEach(function commitIterator (handler) {
+    handler(payload);
+  });
+});
+this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+if (options &amp;&amp; options.silent) {
+...</pre></li>
     </ul>
 
 
@@ -520,7 +536,23 @@
     );
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      type = namespace + type;
+      if (!store._mutations[type]) {
+        console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+        return
+      }
+    }
+
+    store.<span class="apidocCodeKeywordSpan">commit</span>(type, payload, options);
+  }
+};
+
+// getters and state object must be gotten lazily
+// because they will be changed by vm update
+Object.defineProperties(local, {
+  getters: {
+...</pre></li>
     </ul>
 
 
@@ -547,7 +579,23 @@
     ? Promise.all(entry.map(function (handler) { return handler(payload); }))
     : entry[0](payload)
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    type = namespace + type;
+    if (!store._actions[type]) {
+      console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+      return
+    }
+  }
+
+  return store.<span class="apidocCodeKeywordSpan">dispatch</span>(type, payload)
+},
+
+commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+  var args = unifyObjectStyle(_type, _payload, _options);
+  var payload = args.payload;
+  var options = args.options;
+  var type = args.type;
+...</pre></li>
     </ul>
 
 
@@ -602,7 +650,22 @@
     this$1._vm._data.$$state = state;
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.<span class="apidocCodeKeywordSpan">replaceState</span>(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+...</pre></li>
     </ul>
 
 
@@ -626,7 +689,25 @@
     }
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var collapsed = ref.collapsed; if ( collapsed === void 0 ) collapsed = true;
+  var transformer = ref.transformer; if ( transformer === void 0 ) transformer = function (state) { return state; };
+  var mutationTransformer = ref.mutationTransformer; if ( mutationTransformer === void 0 ) mutationTransformer = function (mut) {
+return mut; };
+
+  return function (store) {
+var prevState = deepCopy(store.state);
+
+store.<span class="apidocCodeKeywordSpan">subscribe</span>(function (mutation, state) {
+  if (typeof console === 'undefined') {
+    return
+  }
+  var nextState = deepCopy(state);
+  var time = new Date();
+  var formattedTime = " @ " + (pad(time.getHours(), 2)) + ":" + (pad(time.getMinutes(), 2)) + ":" + (
+pad(time.getSeconds(), 2)) + "." + (pad(time.getMilliseconds(), 3));
+  var formattedMutation = mutationTransformer(mutation);
+...</pre></li>
     </ul>
 
 
